@@ -1,0 +1,45 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<h1 align="center">Help us choose what ideas to pursue!</h1>
+<br></br>
+<h2>Here are our options:</h2>
+<p>1. Find a buddy platform.
+   <p> This would connect students to others working on the same problem set.  
+       <br></br>5C Rideshare, but for homework!
+    </p> 
+</p>
+<br></br>
+<p>2. Group Order.
+    <p> A platform that helps people order in groups.
+        <br></br>Individuals can pay for something and then that item would be added to the order. 
+    </p> 
+</p>
+<br></br>
+<p>3. Wheel Share.
+    <p>  A platform where renters can rent their wheels to the riders.
+        <br></br> Ofo, but you can add your own wheels and get paid per ride.
+    </p> 
+</p>
+<br></br>
+<p>4. Voice Recognition.
+    <p> Could be used either for ordering at restaurants 
+        <br></br>(no need to have someone working the drivethrough orders) or over the phone orders,
+        <br></br> or, for taking down stats for sports games by just talking to your phone
+    </p> 
+</p>
+<br></br><br></br><br></br><br></br>
+<h2>Vote for your favorites below:</h2>
+<br></br>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        <br></br>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
